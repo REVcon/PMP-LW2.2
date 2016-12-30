@@ -1,4 +1,4 @@
-angular.module('Pmp').directive("dropzone", function() {
+angular.module('Pmp').directive("dropzone", function($window) {
     return {
         restrict : 'E',
         scope: true,
@@ -18,15 +18,16 @@ angular.module('Pmp').directive("dropzone", function() {
                 var file = event.dataTransfer.files[0];
                 var fileExtension = file.name.split('.').pop();
                 if (fileExtension != "json") {
-                    $window.alert("Недопустимый файл");
+                    $window.alert("Invalid file");
                     return;
                 }
                 var reader = new FileReader();
                 reader.onload = function (evt) {
+                    var list;
                     try {
-                        var list = JSON.parse(evt.target.result);
+                        list = JSON.parse(evt.target.result);
                     } catch (e) {
-                        $window.alert("Недопустимый файл");
+                        $window.alert("Invalid file");
                     }
                     scope.placemarkCollection.removeAll();
                     for (var i = 0; i < list.length; ++i) {
@@ -37,5 +38,5 @@ angular.module('Pmp').directive("dropzone", function() {
                 reader.readAsText(file);
             });
         }
-    }
+    };
 });

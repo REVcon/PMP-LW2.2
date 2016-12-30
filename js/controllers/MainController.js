@@ -130,7 +130,7 @@ angular.module('Pmp').controller('MainController', ['$scope', '$window', 'LocalS
                 $scope.circleRadius = circleRadius;
             }
 
-            if (isCircleVisible != undefined) {
+            if (isCircleVisible !== undefined) {
                 $scope.isCircleVisible = isCircleVisible;
                 if ($scope.isCircleVisible) {
                     showCircle();
@@ -153,7 +153,7 @@ angular.module('Pmp').controller('MainController', ['$scope', '$window', 'LocalS
             return placemark;
         };
 
-        collectionToArray = function(collection){
+        collectionToArray = function (collection) {
             var placemarks = [];
             for (var i = 0; i < placemarkCollection.getLength(); ++i) {
                 var placemark = {};

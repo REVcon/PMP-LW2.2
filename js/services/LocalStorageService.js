@@ -16,7 +16,7 @@ angular.module('Pmp').factory('LocalStorageService', function () {
         },
 
         getCircleVisible: function () {
-            return JSON.parse(localStorage.getItem('isCircleVisible'))
+            return JSON.parse(localStorage.getItem('isCircleVisible'));
         }
     };
 });

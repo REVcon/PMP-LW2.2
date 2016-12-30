@@ -31,13 +31,13 @@ describe('MainController test', function () {
                 };
                 this.remove = function(item){
                     for (var i = 0; i < this.length; ++i){
-                        if (collection[i] = item){
+                        if (collection[i] == item){
                             collection.splice( i, 1 );
                             this.length--;
                             return;
                         }
                     }
-                }
+                };
             };
             scope.placemarkCollection = new collectionMock();
         });
