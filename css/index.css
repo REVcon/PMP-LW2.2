@@ -1,0 +1,101 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic);
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+.left-column {
+    height: 100vh;
+    min-width: 260px !important;
+    width: 30%;
+    float: left;
+}
+
+ya-map {
+    height: 100vh;
+    width: 70%;
+    max-width: calc(100% - 260px);
+    float: left;
+}
+
+ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+.placemark-name {
+    border: none;
+}
+
+.item {
+    width: 100%;
+    height: 40px;
+    padding: 10px 10px 10px 27px;
+    cursor: pointer;
+    border-bottom: 1px solid #FFCB80;
+    border-top: 1px solid #FFCB80;
+}
+
+.item:hover {
+    background-color: #FFCB80;
+}
+
+.float-left {
+    float: left;
+}
+
+.item-but {
+    float: right;
+    padding: 0 10px;
+}
+
+dropzone {
+    width: 100%;
+    height: 20%;
+    border: 1px dashed #FFCB80;
+    text-align: center;
+    display: block;
+}
+
+dropzone p {
+    margin-top: 50px;
+    vertical-align: middle;
+}
+
+.current-pos-but {
+    width: 100%;
+    height: 40px;
+    padding: 10px 0 10px 0;
+    cursor: pointer;
+    background-color: #FFCB80;
+    text-align: center;
+}
+
+.current-pos-but {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.placemarks {
+    height: calc(80% - 80px);
+    overflow-y: auto;
+    margin-bottom: 0;
+}
+
+.show-circle-but {
+    width: 100%;
+    height: 40px;
+    padding: 10px 0 10px 0;
+    cursor: pointer;
+    background-color: #FFCB80;
+    text-align: center;
+    border-top: 1px solid #FFFFFF;
+}
