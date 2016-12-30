@@ -150,10 +150,26 @@ angular.module('Pmp').controller('MainController', ['$scope', '$window', 'LocalS
             var placemark = new ymaps.Placemark(coords, data, options);
             $scope.placemarkCollection.add(placemark);
             $scope.$apply();
+            return placemark;
+        };
+
+        collectionToArray = function(collection){
+            var placemarks = [];
+            for (var i = 0; i < placemarkCollection.getLength(); ++i) {
+                var placemark = {};
+                placemark.name = placemarkCollection.get(i).properties.get('balloonContent');
+                var coords = placemarkCollection.get(i).geometry.getCoordinates();
+                placemark.coordinates = {};
+                placemark.coordinates.latitude = coords[1];
+                placemark.coordinates.longitude = coords[0];
+                placemark.isVisible = placemarkCollection.get(i).options.get('visible');
+                placemarks.push(placemark);
+            }
+            return placemarks;
         };
 
         saveToLocalStorage = function () {
-            LocalStorageService.save($scope.placemarkCollection, $scope.circleRadius, $scope.isCircleVisible);
+            LocalStorageService.save(collectionToArray($scope.placemarkCollection), $scope.circleRadius, $scope.isCircleVisible);
         };
 
         $window.addEventListener('beforeunload', saveToLocalStorage);
